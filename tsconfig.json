@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "lib": ["es2021", "dom"],
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "skipLibCheck": false,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "",
+    "outDir": "build",
+    "baseUrl": "./src",
+    "allowJs": false,
+    "strict": false
+  }
+}
