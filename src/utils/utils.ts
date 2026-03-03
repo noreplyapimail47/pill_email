@@ -1,4 +1,4 @@
-import { BIRTHDAY_DAY, BIRTHDAY_MONTH, BUENOS_AIRES_TIMEZONE } from './constants'
+import { ANNIVERSARY_DAY, ANNIVERSARY_MONTH, BIRTHDAY_DAY, BIRTHDAY_MONTH, BUENOS_AIRES_TIMEZONE } from './constants'
 
 export const getDayOfTheYear = (): number => {
   const now: any = new Date()
@@ -47,4 +47,11 @@ export const todayIsHerBirthDayInBuenosAires = (): boolean => {
   console.log('BUENOS AIRES DAY: ', day)
   console.log('BUENOS AIRES MONTH: ', month)
   return day === BIRTHDAY_DAY && month === BIRTHDAY_MONTH
+}
+
+export const todayIsOurAnniversary = (): boolean => {
+  const nowInBuenosAires = new Date().toLocaleString('en-US', { timeZone: BUENOS_AIRES_TIMEZONE }).split('/')
+  const day = Number(nowInBuenosAires[1])
+  const month = Number(nowInBuenosAires[0])
+  return day === ANNIVERSARY_DAY && month === ANNIVERSARY_MONTH
 }

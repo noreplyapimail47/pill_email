@@ -1,9 +1,9 @@
 import cron from 'node-cron'
 import { env } from 'process'
 import { Mailer } from './mailer'
-import { availableTexts, birthdayText } from '../assets/messagesToSend'
+import { anniversaryText, availableTexts, birthdayText } from '../assets/messagesToSend'
 import fs from 'fs'
-import { getDayOfTheYear, sortImagesByName, todayIsHerBirthDayInBuenosAires } from '../utils/utils'
+import { getDayOfTheYear, sortImagesByName, todayIsHerBirthDayInBuenosAires, todayIsOurAnniversary } from '../utils/utils'
 import { BUENOS_AIRES_TIMEZONE, UNIQUE_IMAGE_CID } from '../utils/constants'
 import { getEmailHtmlWithImage } from '../utils/emailTemplate'
 require('dotenv').config({ path: '.env' })
@@ -39,7 +39,7 @@ export class Cron {
 
     const subject = 'Recordatorio de pastillas'
     const from = env.EMAIL_USER
-    const text = todayIsHerBirthDayInBuenosAires() ? birthdayText : availableTexts[textNumber]
+    const text = todayIsHerBirthDayInBuenosAires() ? birthdayText : todayIsOurAnniversary() ? anniversaryText : availableTexts[textNumber]
     const html = getEmailHtmlWithImage(text)
     const selectedImageFileName = allImagesSorted[imageNumber]
 
